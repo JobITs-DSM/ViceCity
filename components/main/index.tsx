@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import Link from "next/link";
 import * as React from "react";
 import { useRecoilState } from "recoil";
 import { COLOR } from "../../styles/color";
@@ -78,7 +79,9 @@ export const Main = (props: Props) => {
         </h1>
         <p>자비츠에서 지금 바로 모집을 시작하세요</p>
         <button onClick={companyLoginModalOn}>모집 의뢰하기</button>
-        <button>기업 등록하기</button>
+        <Link href="/regist">
+          <button>기업 등록하기</button>
+        </Link>
         <a
           href="https://www.youtube.com/watch?v=ioMUH0zpqMM&ab_channel=Jazzyfact-Topic"
           target="_blank"
