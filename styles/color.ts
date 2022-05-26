@@ -6,4 +6,5 @@ export const COLOR = {
   red200: "#FF1A1A",
   main: "#5B56FF",
   border: "#9E9E9E",
+  white: "#fff",
 };
