@@ -1,6 +1,8 @@
 import styled from "@emotion/styled";
 import * as React from "react";
-import { COLOR } from "./../../styles/color";
+import { useRecoilState } from "recoil";
+import { COLOR } from "../../styles/color";
+import { modalState } from "./../../atoms/modal";
 
 const Wrapper = styled.section`
   width: 100%;
@@ -52,6 +54,13 @@ const DarkCover = styled.div`
 type Props = {};
 
 export const Main = (props: Props) => {
+  const [_, setModalState] = useRecoilState(modalState);
+
+  const companyLoginModalOn = () =>
+    setModalState({
+      modalState: "login",
+    });
+
   return (
     <Wrapper>
       <DarkCover>
@@ -59,7 +68,7 @@ export const Main = (props: Props) => {
           대덕소프트웨어 마이스터고등학교에 <br /> 오신 것을 환영합니다.
         </h1>
         <p>지금 바로 모집을 시작하세요.</p>
-        <button>모집 의뢰하기</button>
+        <button onClick={companyLoginModalOn}>모집 의뢰하기</button>
         <button>기업 등록하기</button>
       </DarkCover>
     </Wrapper>
