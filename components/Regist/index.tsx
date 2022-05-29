@@ -3,8 +3,9 @@ import * as React from "react";
 import styled from "@emotion/styled";
 import { COLOR } from "../../styles/color";
 import { Input } from "./Input";
-import { Form, FORM_LIST_FOR_COMPANY_INTRO } from "./formList";
+import { Form, FORM_LIST_FOR_COMPANY_INTRO, InputName } from "./formList";
 import { FORM_LIST_FOR_MANAGER_AND_CONTACT } from "./formList";
+import { InputNameList } from "./formList";
 
 const Wrapper = styled.section`
   width: 100%;
@@ -51,16 +52,37 @@ const SubmitButton = styled.button`
 
 type Props = {};
 
+type CompanyInfo = {
+  [key in InputName]: string | number | null;
+};
+
 export const Regist = (props: Props) => {
+  const [companyInfoList, setCompanyInfoList] = React.useState<CompanyInfo>(
+    Object.assign({}, ...InputNameList.map((key) => ({ [key]: null })))
+  );
+
+  const handleCompanyInfoInput = (
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    setCompanyInfoList({
+      ...companyInfoList,
+      [event.currentTarget.name]: event.currentTarget.value,
+    });
+  };
+
   const formListToInput = (list: Form[][]) => {
     return list.map((formInfoArr, index) => (
       <React.Fragment key={index}>
         {formInfoArr.length === 1 ? (
-          <Input form={formInfoArr[0]} />
+          <Input form={formInfoArr[0]} handler={handleCompanyInfoInput} />
         ) : (
           <InputGridWrap>
             {formInfoArr.map((formInfo, index) => (
-              <Input key={index} form={formInfo} />
+              <Input
+                key={index}
+                form={formInfo}
+                handler={handleCompanyInfoInput}
+              />
             ))}
           </InputGridWrap>
         )}

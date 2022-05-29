@@ -37,15 +37,20 @@ const InputTitle = styled.div`
 
 type Props = {
   form: Form;
+  handler: React.ChangeEventHandler;
 };
 
-export const Input = ({ form }: Props) => {
+export const Input = ({ form, handler }: Props) => {
   return (
     <Wrapper>
       <InputTitle>
         {form.title} <b>{form.isEssential && "*"}</b>
       </InputTitle>
-      <input placeholder={form.placeholder} />
+      <input
+        placeholder={form.placeholder}
+        name={form.name}
+        onChange={handler}
+      />
     </Wrapper>
   );
 };
