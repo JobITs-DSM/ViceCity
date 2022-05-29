@@ -38,6 +38,17 @@ const InputGridWrap = styled.div`
   grid-column-gap: 20px;
 `;
 
+const SubmitButton = styled.button`
+  width: 100%;
+  height: 50px;
+  background-color: ${COLOR.main};
+  color: ${COLOR.white};
+  border-radius: 5px;
+  margin-top: 50px;
+  font-size: 17px;
+  font-weight: bold;
+`;
+
 type Props = {};
 
 export const Regist = (props: Props) => {
@@ -66,6 +77,7 @@ export const Regist = (props: Props) => {
         {formListToInput(FORM_LIST_FOR_COMPANY_INTRO)}
         <FormSectionTitle>담당자 및 연락처</FormSectionTitle>
         {formListToInput(FORM_LIST_FOR_MANAGER_AND_CONTACT)}
+        <SubmitButton>등록하기</SubmitButton>
       </FormContainer>
     </Wrapper>
   );
