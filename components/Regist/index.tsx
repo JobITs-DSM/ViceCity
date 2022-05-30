@@ -2,7 +2,7 @@
 import * as React from "react";
 import styled from "@emotion/styled";
 import { COLOR } from "../../styles/color";
-import { Input } from "./Input";
+import { EnterForm } from "./Form";
 import { Form, FORM_LIST_FOR_COMPANY_INTRO, InputName } from "./formList";
 import { FORM_LIST_FOR_MANAGER_AND_CONTACT } from "./formList";
 import { InputNameList } from "./formList";
@@ -74,11 +74,11 @@ export const Regist = (props: Props) => {
     return list.map((formInfoArr, index) => (
       <React.Fragment key={index}>
         {formInfoArr.length === 1 ? (
-          <Input form={formInfoArr[0]} handler={handleCompanyInfoInput} />
+          <EnterForm form={formInfoArr[0]} handler={handleCompanyInfoInput} />
         ) : (
           <InputGridWrap>
             {formInfoArr.map((formInfo, index) => (
-              <Input
+              <EnterForm
                 key={index}
                 form={formInfo}
                 handler={handleCompanyInfoInput}
