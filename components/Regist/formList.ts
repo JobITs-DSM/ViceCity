@@ -3,7 +3,7 @@ export type Form = {
   isEssential: boolean;
   placeholder: string;
   name?: InputName;
-  type: "input" | "select";
+  type: "input" | "select" | "textarea";
   codeType?: "employee_num" | "business_class";
 };
 
@@ -124,7 +124,7 @@ export const FORM_LIST_FOR_COMPANY_INTRO: Form[][] = [
       isEssential: false,
       placeholder: "기업 소개를 간략히 적어주세요",
       name: "company_intro",
-      type: "input",
+      type: "textarea",
     },
   ],
   [

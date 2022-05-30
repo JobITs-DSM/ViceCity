@@ -13,7 +13,8 @@ const Wrapper = styled.div`
   flex-direction: column;
   margin-top: 20px;
   & input,
-  select {
+  select,
+  textarea {
     width: 100%;
     height: 45px;
     margin-top: 10px;
@@ -29,6 +30,11 @@ const Wrapper = styled.div`
     &:focus {
       border: 1px solid ${COLOR.main_text};
     }
+  }
+  & textarea {
+    height: 150px;
+    padding-top: 20px;
+    resize: none;
   }
 `;
 
@@ -89,6 +95,12 @@ export const EnterForm = ({ form, handler }: Props) => {
             </option>
           ))}
         </select>
+      ) : form.type === "textarea" ? (
+        <textarea
+          placeholder={form.placeholder}
+          name={form.name}
+          onChange={handler}
+        />
       ) : (
         <></>
       )}
