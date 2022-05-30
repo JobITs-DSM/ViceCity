@@ -40,6 +40,9 @@ const Wrapper = styled.div`
     padding-top: 20px;
     resize: none;
   }
+  & select option[disabled] {
+    display: none;
+  }
 `;
 
 const FormTitle = styled.div`
@@ -92,7 +95,10 @@ export const EnterForm = ({ form, handler }: Props) => {
           onChange={handler}
         />
       ) : form.type === "select" ? (
-        <select>
+        <select name={form.name} onChange={handler} defaultValue="null">
+          <option value="null" disabled>
+            선택해주세요
+          </option>
           {codes.map((code, idx) => (
             <option value={code.code} key={idx}>
               {code.value}

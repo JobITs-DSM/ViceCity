@@ -61,6 +61,8 @@ export const Regist = (props: Props) => {
     Object.assign({}, ...InputNameList.map((key) => ({ [key]: null })))
   );
 
+  console.log(companyInfoList);
+
   const handleCompanyInfoInput = (
     event: React.ChangeEvent<HTMLInputElement>
   ) => {
