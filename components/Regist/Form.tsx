@@ -31,6 +31,10 @@ const Wrapper = styled.div`
       border: 1px solid ${COLOR.main_text};
     }
   }
+  & input[type="file"] {
+    border: none;
+    padding: 0;
+  }
   & textarea {
     height: 150px;
     padding-top: 20px;
@@ -102,7 +106,7 @@ export const EnterForm = ({ form, handler }: Props) => {
           onChange={handler}
         />
       ) : (
-        <></>
+        <input type="file" name={form.name} onChange={handler} />
       )}
     </Wrapper>
   );

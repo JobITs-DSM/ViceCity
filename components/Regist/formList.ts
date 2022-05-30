@@ -3,7 +3,7 @@ export type Form = {
   isEssential: boolean;
   placeholder: string;
   name?: InputName;
-  type: "input" | "select" | "textarea";
+  type: "input" | "select" | "textarea" | "file";
   codeType?: "employee_num" | "business_class";
 };
 
@@ -132,13 +132,13 @@ export const FORM_LIST_FOR_COMPANY_INTRO: Form[][] = [
       title: "사업자등록증 사본",
       isEssential: true,
       placeholder: "",
-      type: "input",
+      type: "file",
     },
     {
       title: "기업 소개서",
       isEssential: false,
       placeholder: "",
-      type: "input",
+      type: "file",
     },
   ],
   [
@@ -146,13 +146,13 @@ export const FORM_LIST_FOR_COMPANY_INTRO: Form[][] = [
       title: "기업 로고",
       isEssential: false,
       placeholder: "",
-      type: "input",
+      type: "file",
     },
     {
       title: "대표 이미지",
       isEssential: false,
       placeholder: "",
-      type: "input",
+      type: "file",
     },
   ],
 ];
