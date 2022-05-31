@@ -168,7 +168,7 @@ export const FORM_LIST_FOR_MANAGER_AND_CONTACT: Form[][] = [
     },
     {
       title: "소속부서 및 직위",
-      isEssential: false,
+      isEssential: true,
       placeholder: "예시 : 인사담당자",
       name: "department_and_position",
       type: "input",
